@@ -126,7 +126,7 @@ public class Accounts{
                     System.exit(0);
                     break;
                 default:
-                    System.out.println("Invalid choice!") 
+                    System.out.println("Invalid choice!");
 
             }
         }

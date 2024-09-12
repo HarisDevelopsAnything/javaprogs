@@ -79,9 +79,11 @@ class Grocery {
                     id= sc.next();
                     int f=0;
                     for(int i=0;i<c;i++){
-                        if(items[i].itemid.equals(id))
+                        if(items[i].itemid.equals(id)){
                         items[i].displayDetails();
                         f=1;
+                        break;
+                        }
                     }
                     if(f==0)
                     System.out.println("Item not found!");

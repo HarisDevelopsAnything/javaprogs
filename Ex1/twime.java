@@ -10,7 +10,6 @@ class twime {
         }
     }
     static boolean isPrime(int n){
-        boolean prime= true;
         for(int i=2;i<n;i++)
             if(n%i==0)
                 return false;
