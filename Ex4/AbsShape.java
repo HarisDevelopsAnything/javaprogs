@@ -29,7 +29,7 @@ class Triangle extends Shape{
         h= height;
     }
     void calculateArea(){
-        area= 1/2*b*h;
+        area= b*h/2;
     }
     void calculatePerimeter(){
         perimeter= 2*h+b;

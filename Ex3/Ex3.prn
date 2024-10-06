@@ -1,0 +1,58 @@
+Script started on 2024-10-03 16:30:16+05:30 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="137" LINES="30"]
+[1m[35m                     [31m./[35mo[34m.
+                   [31m./[35msssso[34m-
+                 [31m`:[35mosssssss+[34m-
+               [31m`:+[35msssssssssso[34m/.
+             [31m`-/o[35mssssssssssssso[34m/.
+           [31m`-/+[35msssssssssssssssso[34m+:`
+         [31m`-:/+[35msssssssssssssssssso[34m+/.
+       [31m`.://o[35msssssssssssssssssssso[34m++-
+      [31m.://+[35mssssssssssssssssssssssso[34m++:
+    [31m.:///o[35mssssssssssssssssssssssssso[34m++:
+  [31m`:////[35mssssssssssssssssssssssssssso[34m+++.
+[31m`-////+[35mssssssssssssssssssssssssssso[34m++++-
+ [31m`..-+[35moosssssssssssssssssssssssso[34m+++++/`
+   [34m./++++++++++++++++++++++++++++++/:.
+  `:::::::::::::::::::::::::------``[m[1G[14A[m[?7l[44C[m[1m[31mharisdevelops[m@[1m[31ma715-41g[m
+[44C----------------------
+[44C[m[1m[35mOS[m: [mEndeavourOS x86_64
+[44C[m[1m[35mHost[m: [mMandolin-PCO (V1.02)
+[44C[m[1m[35mKernel[m: [mLinux 6.10.10-arch1-1
+[44C[m[1m[35mUptime[m: [m2 hours, 1 min
+[44C[m[1m[35mPackages[m: [m1331 (pacman), 7 (flatpak)
+[44C[m[1m[35mShell[m: [mbash 5.2.37
+[44C[m[1m[35mDisplay (LGD065A)[m: [m1920x1080 @ 60 Hz (as 1536x864) in 16″ [Built-in]
+[44C[m[1m[35mDE[m: [mKDE Plasma 6.1.5
+[44C[m[1m[35mWM[m: [mKWin (Wayland)
+[44C[m[1m[35mWM Theme[m: [mBreeze
+[44C[m[1m[35mTheme[m: [mBreeze (Dark) [Qt], Breeze-Dark [GTK2], Breeze [GTK3/4]
+[44C[m[1m[35mIcons[m: [mbreeze-dark [Qt], breeze-dark [GTK2/3/4]
+[44C[m[1m[35mFont[m: [mProduct Sans (10pt) [Qt], Product Sans (10pt) [GTK2/3/4]
+[44C[m[1m[35mCursor[m: [mbreeze (24px)
+[44C[m[1m[35mTerminal[m: [mscript
+[44C[m[1m[35mCPU[m: [mAMD Ryzen 5 3550H with Radeon Vega Mobile Gfx (8) @ 2.10 GHz
+[44C[m[1m[35mGPU[m: [mAMD Radeon Vega 8 Graphics [Integrated]
+[44C[m[1m[35mMemory[m: [m3.96 GiB / 5.72 GiB ([93m69%[m)
+[44C[m[1m[35mSwap[m: [mDisabled
+[44C[m[1m[35mDisk (]8;;file:///\/]8;;\)[m: [m36.53 GiB / 107.95 GiB ([32m34%[m) - btrfs
+[44C[m[1m[35mBattery (AP19B5L)[m: [m[93m30%[m [Discharging]
+[44C[m[1m[35mLocale[m: [men_IN
+[44C
+[44C[m[40m   [41m   [42m   [43m   [44m   [45m   [46m   [47m   [m
+[44C[100m   [101m   [102m   [103m   [104m   [105m   [106m   [107m   [m
+[?7h  ___                                                     __            
+ / _ \ _ __   ___ _ __    ___  ___  _   _ _ __ ___ ___   / _| ___  _ __ 
+| | | | '_ \ / _ \ '_ \  / __|/ _ \| | | | '__/ __/ _ \ | |_ / _ \| '__|
+| |_| | |_) |  __/ | | | \__ \ (_) | |_| | | | (_|  __/ |  _| (_) | |   
+ \___/| .__/ \___|_| |_| |___/\___/ \__,_|_|  \___\___| |_|  \___/|_|   
+      |_|                                                               
+ _ _  __      _ 
+| (_)/ _| ___| |
+| | | |_ / _ \ |
+| | |  _|  __/_|
+|_|_|_|  \___(_)
+                
+]0;harisdevelops@a715-41g:~/javaprogs/Ex3[?2004h[harisdevelops@a715-41g Ex3]$ exit
+[?2004lexit
+
+Script done on 2024-10-03 16:30:20+05:30 [COMMAND_EXIT_CODE="0"]
