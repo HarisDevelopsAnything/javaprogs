@@ -23,7 +23,7 @@ class Student{
         return("["+s.rollNo+", "+s.name+","+s.className+","+s.marks+","+s.CGPA+"]");
     }
     public int hashCode(){
-        return(count); 
+        return Math.abs(rollNo.hashCode())%100;
     }
     void display(){
         System.out.println("Roll no.: "+ rollNo);
@@ -63,7 +63,6 @@ public class StudentMain {
                 if(f!=0)
                 break;
                 students[newStudent.hashCode()] = newStudent;
-                Student.count++;
                 c++;
                 System.out.println("Student added.");
                 break;
@@ -71,13 +70,12 @@ public class StudentMain {
                 System.out.print("Enter roll no.:");
                 String rn= sc.next();
                 int f1=0;
-                for(int i=0;i<c;i++){
-                    if(rn.equals(students[i].rollNo)){
-                        System.out.println("String rep: "+Student.toString(students[i]));
-                        students[i].display();
+		int index= Math.abs(rn.hashCode())%100;
+                if(students[index]!=null){
+                     System.out.println("String rep: "+Student.toString(students[index]));
+                        students[index].display();
                         f1=1;
                     }
-                }
                 if(f1==0)
                 System.out.println("No such student.");
                 break;

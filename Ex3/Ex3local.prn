@@ -1,0 +1,606 @@
+Ex3]$ cat PersonMain1.java
+[?2004limport java.util.*;
+class Person {
+    String name;
+    int age;
+    String addr;
+    Person(String n, int a, String ad) {
+        name = n;
+        age = a;
+        addr = ad;
+    }
+    void display() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Addr: " + addr);
+    }
+}
+class Student extends Person {
+    String rollno;
+    String dept;
+    double m1, m2, m3;
+    double CGPA;
+    Student(String n, int a, String ad, String r, String d, double m1, double m2, double m3) {
+        super(n, a, ad);
+        rollno = r;
+        dept = d;
+        this.m1 = m1;
+        this.m2 = m2;
+        this.m3 = m3;
+    }
+    void computeCGPA() {
+        CGPA = (m1 + m2 + m3) / 30;
+    }
+    void display() {
+        super.display();
+        System.out.println("Roll: " + rollno);
+        System.out.println("Dept: " + dept);
+        System.out.println("CGPA: " + CGPA);
+    }
+}
+class Staff extends Person {
+    String dept;
+    String doj;
+    double basicpay;
+    Staff(String name, int age, String addr, String d, String date, double b) {
+        super(name, age, addr);
+        dept = d;
+        doj = date;
+        basicpay = b;
+    }
+    void display() {
+        super.display();
+        System.out.println("Dept.: " + dept);
+        System.out.println("Date of joining: " + doj);
+        System.out.println("Basic pay: " + basicpay);
+    }
+}
+class NonTeachingStaff extends Staff {
+    double all;
+    double sal;
+    NonTeachingStaff(double all, String name, int age, String addr, String d, String date, double b) {
+        super(name, age, addr, d, date, b);
+        this.all = all;
+    }
+    void computeSalary() {
+        sal = basicpay + all;
+    }
+    void display() {
+        super.display();
+        System.out.println("Salary: " + sal);
+    }
+}
+class TeachingStaff extends Staff {
+    double hra, da, ded, sal;
+    TeachingStaff(double hra, double da, double ded, String name, int age, String addr, String d, String date, double b) {
+        super(name, age, addr, d, date, b);
+        this.hra = hra;
+        this.da = da;
+        this.ded = ded;
+    }
+    void computeSalary() {
+        sal = basicpay + hra + da - ded;
+    }
+    void display() {
+        super.display();
+        System.out.println("Salary: " + sal);
+    }
+}
+public class PersonMain1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Person[] people = new Person[100];
+        int count = 0;
+        while (true) {
+            System.out.println("1) Add new person 2) Show details of a person 3) Exit");
+            int choice = sc.nextInt();
+            sc.nextLine();
+            if (choice == 1) {
+                System.out.println("Select type of person:");
+                System.out.println("1) Person");
+                System.out.println("2) Student");
+                System.out.println("3) Staff");
+                int type = sc.nextInt();
+                sc.nextLine();
+                
+                switch (type) {
+                    case 1:
+                        System.out.print("Name: ");
+                        String name1 = sc.nextLine();
+                        System.out.print("Age: ");
+                        int age1 = sc.nextInt();
+                        sc.nextLine();
+                        System.out.print("Address: ");
+                        String addr1 = sc.nextLine();
+                        people[count++] = new Person(name1, age1, addr1);
+                        break;
+                    case 2:
+                        System.out.print("Name: ");
+                        String name2 = sc.nextLine();
+                        System.out.print("Age: ");
+                        int age2 = sc.nextInt();
+                        sc.nextLine();
+                        System.out.print("Address: ");
+                        String addr2 = sc.nextLine();
+                        System.out.print("Roll no.: ");
+                        String rollno = sc.nextLine();
+                        System.out.print("Department: ");
+                        String dept1 = sc.nextLine();
+                        System.out.print("Marks 1: ");
+                        double m1 = sc.nextDouble();
+                        System.out.print("Marks 2: ");
+                        double m2 = sc.nextDouble();
+                        System.out.print("Marks 3: ");
+                        double m3 = sc.nextDouble();
+                        Student ob1 = new Student(name2, age2, addr2, rollno, dept1, m1, m2, m3);
+                        ob1.computeCGPA();
+                        people[count++] = ob1;
+                        break;
+                    case 3:
+                        System.out.println("Select type of staff:");
+                        System.out.println("1) Non-Teaching Staff");
+                        System.out.println("2) Teaching Staff");
+                        int staffType = sc.nextInt();
+                        sc.nextLine();
+                        
+                        switch (staffType) {
+                            case 1:
+                                System.out.print("Allowances: ");
+                                double all = sc.nextDouble();
+                                sc.nextLine();
+                                System.out.print("Name: ");
+                                String name4 = sc.nextLine();
+                                System.out.print("Age: ");
+                                int age4 = sc.nextInt();
+                                sc.nextLine();
+                                System.out.print("Address: ");
+                                String addr4 = sc.nextLine();
+                                System.out.print("Department: ");
+                                String dept3 = sc.nextLine();
+                                System.out.print("Date of joining: ");
+                                String doj1 = sc.nextLine();
+                                System.out.print("Basic pay: ");
+                                double basicpay1 = sc.nextDouble();
+                                NonTeachingStaff ob2 = new NonTeachingStaff(all, name4, age4, addr4, dept3, doj1, basicpay1);
+                                ob2.computeSalary();
+                                people[count++] = ob2;
+                                break;
+                            case 2:
+                                System.out.print("HRA: ");
+                                double hra = sc.nextDouble();
+                                System.out.print("DA: ");
+                                double da = sc.nextDouble();
+                                System.out.print("Deductions: ");
+                                double ded = sc.nextDouble();
+                                sc.nextLine();
+                                System.out.print("Name: ");
+                                String name5 = sc.nextLine();
+                                System.out.print("Age: ");
+                                int age5 = sc.nextInt();
+                                sc.nextLine();
+                                System.out.print("Address: ");
+                                String addr5 = sc.nextLine();
+                                System.out.print("Department: ");
+                                String dept4 = sc.nextLine();
+                                System.out.print("Date of joining: ");
+                                String doj2 = sc.nextLine();
+                                System.out.print("Basic pay: ");
+                                double basicpay2 = sc.nextDouble();
+                                TeachingStaff ob3 = new TeachingStaff(hra, da, ded, name5, age5, addr5, dept4, doj2, basicpay2);
+                                ob3.computeSalary();
+                                people[count++] = ob3;
+                                break;
+                            default:
+                                System.out.println("Invalid staff type.");
+                        }
+                        break;
+                    default:
+                        System.out.println("Invalid type.");
+                }
+            } else if (choice == 2) {
+                System.out.print("Name of the person: ");
+                String nameToSearch = sc.nextLine();
+                boolean found = false;
+                for (int i = 0; i < count; i++) {
+                    if (people[i].name.equalsIgnoreCase(nameToSearch)) {
+                        people[i].display();
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    System.out.println("Person " + nameToSearch + " not found.");
+                }
+            } else if (choice == 3) {
+                System.out.println("Exiting...");
+                break;
+            } else {
+                System.out.println("Invalid choice.");
+            }
+        }
+    }
+}
+]0;harisdevelops@a715-41g:~/javaprogs/Ex3[?2004h[harisdevelops@a715-41g Ex3]$ java PersonMain1
+[?2004l1) Add new person 2) Show details of a person 3) Exit
+1
+Select type of person:
+1) Person
+2) Student
+3) Staff
+1
+Name: Haris
+Age: 19
+Address: Madurai
+1) Add new person 2) Show details of a person 3) Exit
+1
+Select type of person:
+1) Person
+2) Student
+3) Staff
+2
+Name: Jonatan
+Age: 19
+Address: Sivakasi
+Roll no.: 23bcs105
+Department: CSE
+Marks 1: 97
+Marks 2: 94
+Marks 3: 90
+1) Add new person 2) Show details of a person 3) Exit
+1
+Select type of person:
+1) Person
+2) Student
+3) Staff
+3
+Select type of staff:
+1) Non-Teaching Staff
+2) Teaching Staff
+1
+Allowances: 150000 
+Name: Suresh
+Age: 29
+Address: Virudhunagar
+Department: CSE
+Date of joining: 23/09/19
+Basic pay: 70000
+1) Add new person 2) Show details of a person 3) Exit
+1
+Select type of person:
+1) Person
+2) Student
+3) Staff
+3
+Select type of staff:
+1) Non-Teaching Staff
+2) Teaching Staff
+2
+HRA: 2300
+DA: 4500
+Deductions: 500
+Name: Ganesh
+Age: 34
+Address: Amathur
+Department: ECE
+Date of joining: 12/09/23
+Basic pay: 45000
+1) Add new person 2) Show details of a person 3) Exit
+2
+Name of the person: Ganesh
+Name: Ganesh
+Age: 34
+Addr: Amathur
+Dept.: ECE
+Date of joining: 12/09/23
+Basic pay: 45000.0
+Salary: 51300.0
+1) Add new person 2) Show details of a person 3) Exit
+2
+Name of the person: Jonatan
+Name: Jonatan
+Age: 19
+Addr: Sivakasi
+Roll: 23bcs105
+Dept: CSE
+CGPA: 9.366666666666667
+1) Add new person 2) Show details of a person 3) Exit
+2
+Name of the person: Haris
+Name: Haris
+Age: 19
+Addr: Madurai
+1) Add new person 2) Show details of a person 3) Exit
+2
+Name of the person: Suresh
+Name: Suresh
+Age: 29
+Addr: Virudhunagar
+Dept.: CSE
+Date of joining: 23/09/19
+Basic pay: 70000.0
+Salary: 85000.0
+1) Add new person 2) Show details of a person 3) Exit
+2
+Name of the person: Someone
+Person Someone not found.
+1) Add new person 2) Show details of a person 3) Exit
+3
+Exiting...
+]0;harisdevelops@a715-41g:~/javaprogs/Ex3[?2004h[harisdevelops@a715-41g Ex3]$ cat Main.java
+[?2004limport java.util.*;
+class Account{
+    String accNo;
+    String name;
+    double balance;
+        int actype;
+    Account(String accNo, String name, double balance, int actype){
+            this.accNo= accNo;
+            this.name= name;
+            this.balance= balance;
+            this.actype= actype;
+    }
+    void deposit(double amt){
+        balance+= amt;
+        System.out.println("Deposited Rs. " + amt);
+        System.out.println("Current bal.:" + balance);
+        }
+    void display(){
+            System.out.println("Acc no: "+ accNo);
+            System.out.println("Name: "+ name);
+            System.out.println("Balance: "+ balance);
+    }
+    void withdraw(double amt){
+                balance -= amt;
+                System.out.println("Withdrawn "+ amt);
+}
+}
+class SavingsAccount extends Account{
+    static double minBal= 2000;
+    static double roi= 5;
+    SavingsAccount(String accNo, String name, double balance){
+            super(accNo, name, balance, 0);
+    }
+    void display(){
+            super.display();
+            System.out.println("Min bal: " + minBal);
+            System.out.println("Rate of interest: "+ roi);
+            System.out.println("Type of account : Savings");
+    }
+    void deposit(double amt){
+            balance+= amt;
+            System.out.println("Deposited Rs. " + amt);
+            System.out.println("Current bal.:" + balance);
+    }
+    void withdraw(double amt){
+            if(balance-amt>=minBal){
+                    balance -= amt;
+                    System.out.println("Withdrawn "+ amt);
+            }
+            else
+                    System.out.println("Insufficient funds");
+    }
+}
+class OverdraftAccount extends Account{
+    static double overlimit = -2000;
+    static double roi= 5;
+    static double sc= 2;
+    OverdraftAccount(String accNo, String name, double balance){
+            super(accNo, name, balance, 1);
+    }
+    void display(){
+            super.display();
+            System.out.println("Overdraft limit: "+ overlimit);
+            System.out.println("Account type: Overdraft");
+    }
+    void deposit(double amt){
+            if(balance+amt<0){
+                    System.out.println("You still have a debt of "+balance);
+                    balance+=amt-amt*sc/100;
+            }
+            else
+                    balance+=amt;
+            System.out.println("Rs. "+amt+" deposited!");
+    }
+    void withdraw(double amt){
+            if(balance-amt < overlimit){
+                    System.out.println("Insufficient funds!");
+                    return;
+            }
+            balance-=amt;
+            System.out.println("Withdrawn Rs. "+amt);
+    }
+}
+public class Main{
+    public static void main(String args[]){
+        Account[] aclist= new Account[10];
+        Scanner sc= new Scanner(System.in);
+        int c=0;
+        int ch;
+        while(true){
+                System.out.println("1) Create account 2) Access account 3) Exit");
+                System.out.print("Enter your choice: ");
+                ch= sc.nextInt();
+                switch(ch){
+                        case 1:
+                        System.out.println("1) Savings 2) Overdraft");
+                        System.out.print("Enter the type of account: ");
+                        int t= sc.nextInt();
+                        System.out.print("Enter the name: ");
+                        String n= sc.next();
+                        System.out.print("Enter the acc.no: ");
+                        String acn= sc.next();
+                        System.out.print("Enter the initial funds: ");
+                        double b= sc.nextDouble();
+                        switch(t){
+                                case 1:
+                                SavingsAccount sa= new SavingsAccount(acn, n, b);
+                                aclist[c]= sa;
+                                break;
+                                case 2:
+                                OverdraftAccount oa= new OverdraftAccount(acn, n, b);
+                                aclist[c]= oa;
+                                break;
+                        }
+                        c++;
+                        break;
+                        case 2:
+                        for(int i=0;i<c;i++)
+                        aclist[i].display();
+                        System.out.print("Enter account no.: ");
+                        String sel= sc.next();
+                        int index=-1;
+                        int f=0;
+                        for(int i=0;i<c;i++){
+                                if(aclist[i].accNo.equals(sel)){
+                                        index= i;
+                                }
+                        }
+                        if(index==-1){
+                                System.out.println("No such account!");
+                                break;
+                        }
+                        Account ob;
+                        if(aclist[index].actype==0){
+                                ob= (SavingsAccount)aclist[index];
+                        }
+                        else{
+                                ob= (OverdraftAccount)aclist[index];
+                        }
+                        System.out.println("1) Deposit 2) Withdraw 3) Logout");
+                        System.out.print("Enter the choice:");
+                        int choice= sc.nextInt();
+                        switch(choice){
+                                case 1:
+                                System.out.print("Enter the amount: ");
+                                double amt= sc.nextDouble();
+                                ob.deposit(amt);
+                                break;
+                                case 2:
+                                System.out.print("Enter the amount: ");
+                                double a= sc.nextDouble();
+                                ob.withdraw(a);
+                                break;
+                                case 3:
+                                System.out.println("You are logged out.");
+                                break;
+                                default:
+                                System.out.println("Invalid choice.");
+                        }
+                        break;
+                        case 3:
+                        System.out.println("Exiting");
+                        System.exit(0);
+                        default:
+                        System.out.println("Invalid choice!");
+                        break;
+                }
+
+        }
+    }
+}]0;harisdevelops@a715-41g:~/javaprogs/Ex3[?2004h[harisdevelops@a715-41g Ex3]$ java Main
+[?2004l1) Create account 2) Access account 3) Exit
+Enter your choice: 1
+1) Savings 2) Overdraft
+Enter the type of account: 1
+Enter the name: Haris
+Enter the acc.no: 23bcs104
+Enter the initial funds: 85000
+1) Create account 2) Access account 3) Exit
+Enter your choice: 1
+1) Savings 2) Overdraft
+Enter the type of account: 2
+Enter the name: Jonathan
+Enter the acc.no: 23bcs105
+Enter the initial funds: 49000
+1) Create account 2) Access account 3) Exit
+Enter your choice: 2
+Acc no: 23bcs104
+Name: Haris
+Balance: 85000.0
+Min bal: 2000.0
+Rate of interest: 5.0
+Type of account : Savings
+Acc no: 23bcs105
+Name: Jonathan
+Balance: 49000.0
+Overdraft limit: -2000.0
+Account type: Overdraft
+Enter account no.: 23bcs104
+1) Deposit 2) Withdraw 3) Logout
+Enter the choice:2
+Enter the amount: 20000
+Withdrawn 20000.0
+1) Create account 2) Access account 3) Exit
+Enter your choice: 2
+Acc no: 23bcs104
+Name: Haris
+Balance: 65000.0
+Min bal: 2000.0
+Rate of interest: 5.0
+Type of account : Savings
+Acc no: 23bcs105
+Name: Jonathan
+Balance: 49000.0
+Overdraft limit: -2000.0
+Account type: Overdraft
+Enter account no.: 23bcs104
+1) Deposit 2) Withdraw 3) Logout
+Enter the choice:50000
+Invalid choice.
+1) Create account 2) Access account 3) Exit
+Enter your choice: 2
+Acc no: 23bcs104
+Name: Haris
+Balance: 65000.0
+Min bal: 2000.0
+Rate of interest: 5.0
+Type of account : Savings
+Acc no: 23bcs105
+Name: Jonathan
+Balance: 49000.0
+Overdraft limit: -2000.0
+Account type: Overdraft
+Enter account no.: 23bs104
+No such account!
+1) Create account 2) Access account 3) Exit
+Enter your choice: 2
+Acc no: 23bcs104
+Name: Haris
+Balance: 65000.0
+Min bal: 2000.0
+Rate of interest: 5.0
+Type of account : Savings
+Acc no: 23bcs105
+Name: Jonathan
+Balance: 49000.0
+Overdraft limit: -2000.0
+Account type: Overdraft
+Enter account no.: 23bcs105
+1) Deposit 2) Withdraw 3) Logout
+Enter the choice:2
+Enter the amount: 47000
+Withdrawn Rs. 47000.0
+1) Create account 2) Access account 3) Exit
+Enter your choice: 2
+Acc no: 23bcs104
+Name: Haris
+Balance: 65000.0
+Min bal: 2000.0
+Rate of interest: 5.0
+Type of account : Savings
+Acc no: 23bcs105
+Name: Jonathan
+Balance: 2000.0
+Overdraft limit: -2000.0
+Account type: Overdraft
+Enter account no.: 23bcs105
+1) Deposit 2) Withdraw 3) Logout
+Enter the choice:3
+You are logged out.
+1) Create account 2) Access account 3) Exit
+Enter your choice: 3
+Exiting
+]0;harisdevelops@a715-41g:~/javaprogs/Ex3[?2004h[harisdevelops@a715-41g Ex3]$ exit
+[?2004lexit
+
+Script done on 2024-10-09 07:47:11+05:30 [COMMAND_EXIT_CODE="0"]

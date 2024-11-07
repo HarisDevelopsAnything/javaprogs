@@ -1,0 +1,187 @@
+[?2004h[harisdevelops@a715-41g Ex5]$ cat Main.java
+[?2004limport java.util.*;
+interface PrimeTest {
+    boolean isPrime(int n);
+}
+interface OddTest {
+    boolean isOdd(int n);
+}
+interface PaliTest {
+    boolean isPali(int n);
+}
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+        PrimeTest isPrime = (num) -> {
+            for(int i=2;i<num/2;i++){
+                if(num%i==0)
+                return false;
+            }
+            return true;
+        };
+        OddTest isOdd = (num) -> num%2!=0;
+        PaliTest isPali = (num) -> {
+            int r=0,d;
+            int temp= num;
+            while(num!=0){
+                d=num%10;
+                r=r*10+d;
+                num=num/10;
+            }
+            if(r==temp) 
+            return true;
+            return false; 
+        };
+        System.out.print("Enter the number: ");
+        int n= sc.nextInt();
+        System.out.println(n+" is prime: "+ isPrime.isPrime(n));
+        System.out.println(n+" is odd: "+isOdd.isOdd(n));
+        System.out.println(n+" is palindrome: "+isPali.isPali(n));
+    }
+}
+]0;harisdevelops@a715-41g:~/javaprogs/Ex5[?2004h[harisdevelops@a715-41g Ex5]$ java Main
+[?2004lEnter the number: 5
+5 is prime: true
+5 is odd: true
+5 is palindrome: true
+]0;harisdevelops@a715-41g:~/javaprogs/Ex5[?2004h[harisdevelops@a715-41g Ex5]$ java Main
+[?2004lEnter the number: 121
+121 is prime: false
+121 is odd: true
+121 is palindrome: true
+]0;harisdevelops@a715-41g:~/javaprogs/Ex5[?2004h[harisdevelops@a715-41g Ex5]$ cat Per
+[?2004lcat: Per: No such file or directory
+]0;harisdevelops@a715-41g:~/javaprogs/Ex5[?2004h[harisdevelops@a715-41g Ex5]$ cat StudentMain.java
+[?2004limport java.util.*;
+class Student{
+    String rollNo;
+    String name;
+    String className;
+    double marks;
+    double CGPA;
+    static int count=0;
+    Student(String r, String n, String c, double m){
+        rollNo= r;
+        name= n;
+        className= c;
+        marks= m;
+        CGPA= marks/10;
+    }
+    public boolean equals(Student s){
+        if(this.rollNo.equals(s.rollNo))
+        return true;
+        else
+        return false;
+    }
+    static String toString(Student s){
+        return("["+s.rollNo+", "+s.name+","+s.className+","+s.marks+","+s.CGPA+"]");
+    }
+    public int hashCode(){
+        return(count); 
+    }
+    void display(){
+        System.out.println("Roll no.: "+ rollNo);
+        System.out.println("Name: "+name);
+        System.out.println("Class: "+className);
+        System.out.println("Total marks: "+ marks);
+        System.out.println("CGPA: "+CGPA);
+    }
+}
+public class StudentMain {
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+        int c=0;
+        Student students[]= new Student[100];
+        System.out.println("1) Create new student 2) Show details 3) Exit");
+        while(true){
+            System.out.print("Enter your choice: ");
+            int ch= sc.nextInt();
+            switch(ch){
+                case 1:
+                System.out.print("Name: ");
+                String name= sc.next();
+                System.out.print("Classroom: ");
+                String classroom= sc.next();
+                System.out.print("Roll no: ");
+                String roll= sc.next();
+                System.out.print("Marks: ");
+                double marks= sc.nextDouble();
+                Student newStudent = new Student(roll, name, classroom, marks);
+                int f=0;
+                for(int i=0;i<c;i++){
+                    if(students[i].equals(newStudent)){
+                        System.out.println("Duplicate entry!");
+                        f=1;
+                    }
+                }
+                if(f!=0)
+                break;
+                students[newStudent.hashCode()] = newStudent;
+                Student.count++;
+                c++;
+                System.out.println("Student added.");
+                break;
+                case 2:
+                System.out.print("Enter roll no.:");
+                String rn= sc.next();
+                int f1=0;
+                for(int i=0;i<c;i++){
+                    if(rn.equals(students[i].rollNo)){
+                        System.out.println("String rep: "+Student.toString(students[i]));
+                        students[i].display();
+                        f1=1;
+                    }
+                }
+                if(f1==0)
+                System.out.println("No such student.");
+                break;
+                case 3:
+                System.out.println("Exiting.");
+                System.exit(0);
+                default:
+                System.out.println("Invalid choice.");
+            }
+        }
+    }
+}]0;harisdevelops@a715-41g:~/javaprogs/Ex5[?2004h[harisdevelops@a715-41g Ex5]$ java SrudentMain
+[?2004lError: Could not find or load main class SrudentMain
+Caused by: java.lang.ClassNotFoundException: SrudentMain
+]0;harisdevelops@a715-41g:~/javaprogs/Ex5[?2004h[harisdevelops@a715-41g Ex5]$ java StudentMain
+[?2004l1) Create new student 2) Show details 3) Exit
+Enter your choice: 1
+Name: Haris
+Classroom: CSE-B
+Roll no: 23bcs104
+Marks: 100
+Student added.
+Enter your choice: 1
+Name: JOnathan
+Classroom: CSE-B
+Roll no: 23bcs105
+Marks: 97
+Student added.
+Enter your choice: 2
+Enter roll no.:23bcs104
+String rep: [23bcs104, Haris,CSE-B,100.0,10.0]
+Roll no.: 23bcs104
+Name: Haris
+Class: CSE-B
+Total marks: 100.0
+CGPA: 10.0
+Enter your choice: 2
+Enter roll no.:23bcs105
+String rep: [23bcs105, JOnathan,CSE-B,97.0,9.7]
+Roll no.: 23bcs105
+Name: JOnathan
+Class: CSE-B
+Total marks: 97.0
+CGPA: 9.7
+Enter your choice: 2
+Enter roll no.:23bcs106
+No such student.
+Enter your choice: 3
+Exiting.
+]0;harisdevelops@a715-41g:~/javaprogs/Ex5[?2004h[harisdevelops@a715-41g Ex5]$ exit
+[?2004lexit
+
+Script done on 2024-10-09 07:52:06+05:30 [COMMAND_EXIT_CODE="0"]
