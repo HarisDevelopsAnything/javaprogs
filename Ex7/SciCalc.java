@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 public class SciCalc {
     static JPanel buttonPanel= new JPanel(new GridLayout(4,4));
-    static JLabel output= new JLabel();
+    static JTextField output= new JTextField();
     public static void main(String[] args) {
         JFrame jf= new JFrame("SciCalc");
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -31,11 +31,8 @@ public class SciCalc {
                 }
             }
         }
-        
         jf.setVisible(true);
-
     }
-
     static void buttonAdder(String data){
         JButton button= new JButton(data);
         button.setFont(new Font("Tahoma", Font.PLAIN, 20));
