@@ -2,6 +2,10 @@ import java.util.*;
 public class PrintQueue{
     public static void main(String[] args) {
         PriorityQueue<Integer> pq= new PriorityQueue<>();
+        Iterator<Integer> it= pq.iterator();
+        pq.forEach((Integer a) -> {
+            System.out.println(a);
+        });
         Scanner sc= new Scanner(System.in);
         System.out.println("1) Insert 2) Delete 3) Empty queue");
         while(true){

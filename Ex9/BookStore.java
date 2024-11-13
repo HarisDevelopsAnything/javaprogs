@@ -15,6 +15,7 @@ public class BookStore {
     public static void main(String[] args) {
         Scanner sc= new Scanner(System.in);
         Vector<Book> books= new Vector<>();
+    
         while(true){
             System.out.println("1) Insert 2) Delete 3) Display 4) Update 5) Exit");
             int ch= sc.nextInt();
@@ -56,8 +57,10 @@ public class BookStore {
                 case 4:
                 System.out.print("Enter the book ID: ");
                 String selId= sc.next();
+                int fl=0;
                 for(Book cb: books){
                     if(selId.equals(cb.bookId)){
+                        fl=1;
                         System.out.print("Enter the book name: ");
                         cb.name= sc.next();
                         System.out.print("Enter the author: ");
@@ -65,9 +68,10 @@ public class BookStore {
                         System.out.print("Enter the price: ");
                         cb.price= sc.nextFloat();
                         System.out.println("Updated details.");
-                        return;
+                        break;
                     }
                 }
+                if(fl==0)
                 System.out.println("No such book.");
                 break;
                 case 5:
