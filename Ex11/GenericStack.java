@@ -1,4 +1,4 @@
-import java.util.Comparator;
+
 import java.util.Scanner;
 
 class Person{
