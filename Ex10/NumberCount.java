@@ -1,15 +1,21 @@
-
 import java.util.*;
 class Thread1 extends Thread{
     ArrayList<Integer> primes= new ArrayList<>();
     public void run(){
         for(int i=2;i<50000;i++){
-            if(isPrime(i)) primes.add(i);
+            if(isPrime(i)){ 
+                primes.add(i);
+            }
+
         }
     }
     boolean isPrime(int n){
-        for(int i=2;i<n/2;i++){
-            if(n%i==0 && n!=i)
+        if(n<=1)
+        return false;
+        if(n==2)
+        return true;
+        for(int i=2;i<n;i++){
+            if(n%i==0)
             return false;
         }
         return true;
@@ -29,6 +35,7 @@ class Thread2 extends Thread{
             for(int i: series){
                 value+=i;
             }
+            if(value<=50000)
             series.add(value);
         }
     }
