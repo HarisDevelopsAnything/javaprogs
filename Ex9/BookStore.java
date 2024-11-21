@@ -61,12 +61,25 @@ public class BookStore {
                 for(Book cb: books){
                     if(selId.equals(cb.bookId)){
                         fl=1;
+                        System.out.println("What to update?");
+                        System.out.println("1) Book name 2) Author 3) Price");
+                        int ch1= sc.nextInt();
+                        if(ch==1){
                         System.out.print("Enter the book name: ");
                         cb.name= sc.next();
+                        }
+                        else if(ch==2){
                         System.out.print("Enter the author: ");
                         cb.author= sc.next();
+                        }
+                        else if(ch==3){
                         System.out.print("Enter the price: ");
                         cb.price= sc.nextFloat();
+                        }
+                        else{
+                        System.out.println("Invalid choice!");
+                        break;
+                        }
                         System.out.println("Updated details.");
                         break;
                     }

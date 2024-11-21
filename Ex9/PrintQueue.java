@@ -7,7 +7,7 @@ public class PrintQueue{
             System.out.println(a);
         });
         Scanner sc= new Scanner(System.in);
-        System.out.println("1) Insert 2) Delete 3) Empty queue");
+        System.out.println("1) Insert 2) Delete 3) Empty queue 4) Exit");
         while(true){
         int ch= sc.nextInt();
         switch(ch){
